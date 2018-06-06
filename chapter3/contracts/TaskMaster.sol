@@ -6,8 +6,8 @@ contract TaskMaster {
     address public owner; // owner of the contract
 
     function TaskMaster() public {
-        balances[msg.sender] = 10000;
         owner = msg.sender;
+        balances[msg.sender] = 10000;
     }
 
     function reward(address doer, uint rewardAmount)

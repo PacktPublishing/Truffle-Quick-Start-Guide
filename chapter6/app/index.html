@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Truffle - Mini Dapp</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/>
+  <script src="./app.js"></script>
+</head>
+<body class="pa4 sans-serif">
+  <div class="absolute right-1 top-1 tc pt4 left f5 pb3 bg-black-80 w4 h4 shadow-2 br4 white">You have
+    <div class="f3 mt3">
+      <span id="accountBalance" class="b"></span>
+      wei
+    </div>
+  </div>
+  <div class="tc f2 mt6 near-black">Reward a doer for their hard work - send them Ether</div>
+  <div class="pa4 mt4 bg-white shadow-1 br2 tc mw7 center">
+    <div class="f3 dark-green">Send Wei</div>
+    <form class="pt3 pb4 ph5-l black-60">
+      <fieldset class="ba b--transparent ph0 mh0">
+        <div class="mt3 ph3 pa0-l">
+          <input
+            class="pa3 input-reset ba b--black-30 br2 bg-white-smoke w-100"
+            type="number"
+            id="weiReward"
+            placeholder="Amount in wei">
+        </div>
+        <div class="mt3 ph3 pa0-l">
+          <input
+            class="pa3 input-reset ba b--black-30 br2 bg-white-smoke w-100"
+            type="text"
+            id="doer"
+            placeholder="Address">
+        </div>
+      </fieldset>
+    </form>
+    <button
+      class="white pa3 ph4 bg-green br2 f3 b pointer"
+      onclick="TaskMasterApp.rewardDoer()"
+      >&#8594;
+    </button>
+  </div>
+  <div id="transactionStatus" class="pt4 center tc"></div>
+</body>
+</html>

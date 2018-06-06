@@ -1,0 +1,19 @@
+{
+  "name": "truffle-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "truffle-contract": "^3.0.4",
+    "web3": "^1.0.0-beta.33"
+  }
+}

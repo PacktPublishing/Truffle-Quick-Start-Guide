@@ -52,14 +52,14 @@ window.TaskMasterApp = {
   rewardDoer: function() {
     var self = this;
 
-    var weiReward = +document.getElementById("weiReward").value;
+    var todoCoinReward = +document.getElementById("todoCoinReward").value;
     var doer = document.getElementById("doer").value;
 
     this.updateTransactionStatus("Transaction in progress ... ");
 
     TaskMaster.deployed()
       .then(function(taskMasterInstance) {
-        return taskMasterInstance.reward(doer, weiReward, {
+        return taskMasterInstance.reward(doer, todoCoinReward, {
           from: ownerAccount
         });
       }).then(function() {
