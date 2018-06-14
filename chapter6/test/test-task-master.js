@@ -28,13 +28,21 @@ contract('TaskMaster', accounts => {
 
   it('should be able to reward recipient', function() {
     const REWARD_WEI = 50;
-    const expectedOwnerBalance = 9950;
-    const expectedRecipientBalance = 50;
+    let originalOwnerBalance;
+    let originalRecipientBalance;
     let instance;
 
     return TaskMaster.deployed()
       .then(_instance => {
         instance = _instance;
+        return instance.getBalance.call(owner, { from: owner } );
+      })
+      .then(_originalOwnerBalance => {
+        originalOwnerBalance = _originalOwnerBalance;
+        return instance.getBalance.call(recipient, { from: owner } );
+      })
+      .then(_originalRecipientBalance => {
+        originalRecipientBalance = _originalRecipientBalance;
         return instance.reward(recipient, REWARD_WEI, {
           from: owner
         });
@@ -63,11 +71,11 @@ contract('TaskMaster', accounts => {
           return instance.getBalance.call(owner, { from: owner } );
       })
       .then(actualOwnerBalance => {
-          assert.equal(actualOwnerBalance, expectedOwnerBalance, `Owner should have ${expectedOwnerBalance}`);
+          assert.equal(actualOwnerBalance.toNumber(), +originalOwnerBalance - REWARD_WEI, `Owner should have ${REWARD_WEI} less`);
           return instance.getBalance.call(recipient, { from: owner } );
       })
       .then(actualRecipientBalance => {
-          assert.equal(actualRecipientBalance, expectedRecipientBalance, `Recipient should have ${expectedRecipientBalance}`);
+          assert.equal(actualRecipientBalance.toNumber(), +originalRecipientBalance + REWARD_WEI, `Recipient should have ${REWARD_WEI} more`);
           return;
       });
   });
