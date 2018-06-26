@@ -1,2 +1,2 @@
-# Learn-Truffle---Fundamentals-of-Ethereum-Development
-Learn Truffle - Fundamentals of Ethereum Development published by Packt
+# Truffle Quick Start Guide
+Truffle Quick Start Guide published by Packt
